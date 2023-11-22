@@ -242,9 +242,48 @@ const checkSquaredWFrequency = (arr1, arr2) => {
     
     if (value !== nonSquaredFrequencyStore.get(key)) return false;
   }
-  
+
   return true;
 };
 
-checkSquaredWFrequency([1, 2, 3, 2], [4, 1, 9, 4]);
+// checkSquaredWFrequency([1, 2, 3, 2], [4, 1, 9, 4]);
+
+
+// 8. Frequency Counter - validAnagram - Given two strings, write a function to determine if the second string is an anagram of the first. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
+
+// Examples:
+
+// validAnagram('', '') // true
+// validAnagram('aaz', 'zza') // false
+// validAnagram('anagram', 'nagaram') // true
+// validAnagram("rat","car") // false) // false
+// validAnagram('qwerty', 'qeywrt') // true
+
+function validAnagram(str1, str2){
+
+    const textValue = str1.replace(/\s/g, "").toLowerCase();
+
+    const anagramValue = str2.replace(/\s/g, "").toLowerCase();
+
+    const textStore = new Map();
+    
+    const anagramStore = new Map();
+    
+    for(let i = 0; i<textValue.length; i++){
+        
+        textStore.set(textValue[i], (textStore.get(textValue[i]) || 0) + 1);
+        
+        anagramStore.set(anagramValue[i], (anagramStore.get(anagramValue[i]) || 0) + 1);
+    };
+    
+    for(let [key, _value] of textStore){
+        
+        if(textStore.get(key) != anagramStore.get(key)) return false
+    };
+    
+    console.log(true)
+    return true;
+}
+
+// validAnagram("Tom Marvolo Riddle", "Lord Voldemort")
 
