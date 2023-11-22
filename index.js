@@ -338,7 +338,52 @@ const maxSubArraySum = (arr, window) =>{
 // maxSubArraySum([1,2,4,5,6,3,2,5,6,5],4)
 
 
-// 10. Given a sorted array of integers, write a function called search, that accepts a value and returns the index where the value passed to the function is located. If value is not found return -1.
+
+// 10. Write a function called sameFrequency. Given two positive integers, find out if the two numbers have the same frequency of digits.
+//     Your solution MUST have the following complexities:
+//     Time: O(N)
+
+//     Examples -
+//     sameFrequency(182,281) // true
+//     sameFrequency(34,14) // false
+//     sameFrequency(3589578, 5879385) // true
+//     sameFrequency(22,222) // false
+
+
+const sameFrequency = (num1, num2) => {
+
+    const arr1 = Array.from(num1.toString(), Number);
+
+    const arr2 = Array.from(num2.toString(), Number);
+
+    const arr1Store = new Map();
+
+    const arr2Store = new Map();
+
+    if(arr1.length != arr2.length) return false;
+
+    for(let i = 0; i < arr1.length; i++) {
+
+        arr1Store.set(arr1[i], (arr1Store.get(arr1[i]) || 0) + 1);
+
+        arr2Store.set(arr2[i], (arr2Store.get(arr2[i]) || 0) + 1);
+    };
+
+    if(arr1Store.keys.length != arr1Store.keys.length) return false;
+
+    for(let [key, value] of arr1Store){
+
+        if(arr2Store.get(key) != value) return false;
+    }
+
+    return true;
+};
+
+sameFrequency(3589998, 5879385);
+
+
+
+// 11. Given a sorted array of integers, write a function called search, that accepts a value and returns the index where the value passed to the function is located. If value is not found return -1.
 
 //     Example -
 //     [1,2,3,5,6,7,9,10,33,55,67], 55 - returns 9
@@ -357,11 +402,11 @@ const searchIndex = (arr, num) => {
         else if(arr[mid] > num) max = mid - 1;
 
         else {
-            console.log(mid); return mid; 
+             return mid; 
         }
     }
 
     console.log(-1)
 };
 
-searchIndex([1,2,3,5,6,7,9,10,33,55,67], 55);
+// searchIndex([1,2,3,5,6,7,9,10,33,55,67], 55);
