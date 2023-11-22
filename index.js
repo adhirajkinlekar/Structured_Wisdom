@@ -281,9 +281,87 @@ function validAnagram(str1, str2){
         if(textStore.get(key) != anagramStore.get(key)) return false
     };
     
-    console.log(true)
     return true;
 }
 
 // validAnagram("Tom Marvolo Riddle", "Lord Voldemort")
 
+
+// 9. Multiple Pointers - countUniqueValues - Implement a function called countUniqueValues, which accepts a sorted array, and counts the unique values in the array. There can be negative numbers in the array, but it will always be sorted. Solution should be implemented without creating a store.
+
+//    countUniqueValues([1,1,1,1,1,2]) // 2
+//    countUniqueValues([1,2,3,4,4,4,7,7,12,12,13]) // 7
+//    countUniqueValues([]) // 0
+//    countUniqueValues([-2,-1,-1,0,1]) // 4
+
+function countUniqueValues(arr){
+
+    if(arr.length === 0) return 0;
+
+    var i = 0;
+
+    for(var j = 1; j < arr.length; j++){
+
+        if(arr[i] !== arr[j]){
+            i++;
+            arr[i] = arr[j]
+        }
+    }
+    return i + 1;
+}
+// countUniqueValues([1,2,2,5,7,7,99])
+
+
+const maxSubArraySum = (arr, window) =>{
+
+    let maxSum = 0;
+
+    let tempSum = 0;
+
+    for(let i = 0; i < window; i++) {
+
+        maxSum += arr[i];
+    };
+
+    tempSum = maxSum;
+
+    for(let i = window; i < arr.length; i++){
+
+        tempSum = tempSum - arr[i - window] + arr[i];
+
+        maxSum = Math.max(maxSum, tempSum)
+    }
+
+    console.log(maxSum);
+};
+
+// maxSubArraySum([1,2,4,5,6,3,2,5,6,5],4)
+
+
+// 10. Given a sorted array of integers, write a function called search, that accepts a value and returns the index where the value passed to the function is located. If value is not found return -1.
+
+//     Example -
+//     [1,2,3,5,6,7,9,10,33,55,67], 55 - returns 9
+const searchIndex = (arr, num) => {
+
+    let min = 0;
+    
+    let max = arr.length-1;
+
+    while(min <= max){
+
+        const mid = Math.floor((min + max) / 2);
+
+        if(arr[mid] < num) min = mid + 1;
+
+        else if(arr[mid] > num) max = mid - 1;
+
+        else {
+            console.log(mid); return mid; 
+        }
+    }
+
+    console.log(-1)
+};
+
+searchIndex([1,2,3,5,6,7,9,10,33,55,67], 55);

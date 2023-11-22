@@ -1,0 +1,58 @@
+1. Two Pointers Technique:
+
+Description: Use two pointers to traverse the array, typically from the beginning and end or inwards.
+Example: Finding pairs in a sorted array that sum to a target value.
+Sliding Window Technique:
+
+Description: Maintain a subset of elements within a fixed-size window while sliding through the array.
+Example: Maximum sum subarray of size k.
+
+2. Prefix Sum Technique:
+
+Description: Create an auxiliary array to store the prefix sum at each index. Helps in quick range sum queries.
+Example: Subarray with a given sum.
+
+3. Binary Search:
+
+Description: If the array is sorted, you can use binary search to efficiently locate an element.
+Example: Searching in a sorted and rotated array.
+
+4. Sorting:
+
+Description: Sorting the array allows you to solve certain problems more efficiently.
+Example: Find the kth largest (or smallest) element in an array.
+
+5. Hashing:
+
+Description: Use a hash table or map to store elements and their indices for quick lookups.
+Example: Two Sum problem.
+
+6. Greedy Algorithm:
+
+Description: Make locally optimal choices at each stage with the hope of finding a global optimum.
+Example: Jump game where you want to reach the end of the array with the minimum number of jumps.
+
+7. Dynamic Programming:
+
+Description: Break the problem into smaller subproblems and solve them, caching results to avoid redundant calculations.
+Example: Longest increasing subsequence.
+
+8. Divide and Conquer:
+
+Description: Break the problem into smaller subproblems, solve them, and combine the solutions.
+Example: Merge Sort.
+
+9. Cycle Detection:
+
+Description: Detect cycles in an array, useful for problems involving graphs or repeating patterns.
+Example: Linked list cycle detection in an array representation.
+
+10. Bit Manipulation:
+
+Description: Use bitwise operators to manipulate and check bits in array elements.
+Example: Single Number problem.
+
+11. Kadane's Algorithm:
+
+Description: Efficient algorithm to find the maximum subarray sum.
+Example: Maximum subarray sum.
